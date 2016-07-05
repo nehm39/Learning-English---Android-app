@@ -9,6 +9,11 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import com.learning.english.simple.api.YandexRetrofitSingleton
+import com.learning.english.simple.model.YandexTranslation
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,6 +31,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val navigationView = findViewById(R.id.nav_view) as NavigationView?
         navigationView!!.setNavigationItemSelectedListener(this)
+
+        val yandexService = YandexRetrofitSingleton.client
+        val call = yandexService.getTranslation("die", "en-pl")
+        call.enqueue(object : Callback<YandexTranslation> {
+            override fun onFailure(call: Call<YandexTranslation>?, t: Throwable?) {
+
+            }
+
+            override fun onResponse(call: Call<YandexTranslation>?, response: Response<YandexTranslation>?) {
+                val x = 2 as Int
+            }
+        })
     }
 
     override fun onBackPressed() {
