@@ -1,5 +1,6 @@
 package com.learning.english.simple
 
+import android.app.Fragment
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -10,6 +11,8 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import com.learning.english.simple.api.YandexRetrofitSingleton
+import com.learning.english.simple.fragments.StartFragment
+import com.learning.english.simple.fragments.YoutubeFragment
 import com.learning.english.simple.model.YandexTranslation
 import retrofit2.Call
 import retrofit2.Callback
@@ -31,6 +34,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val navigationView = findViewById(R.id.nav_view) as NavigationView?
         navigationView!!.setNavigationItemSelectedListener(this)
+
+        if (savedInstanceState == null) {
+            fragmentManager.beginTransaction()
+            .add(R.id.fragment_container, StartFragment())
+            .commit()
+        }
 
         val yandexService = YandexRetrofitSingleton.client
         val call = yandexService.getTranslation("die", "en-pl")
@@ -78,6 +87,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         val id = item.itemId
+        val fragmentManager = fragmentManager
+        var fragment = null as Fragment?
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
@@ -90,7 +101,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
+            fragment = YoutubeFragment()
+        }
 
+        if (fragment != null) {
+            fragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
         }
 
         val drawer = findViewById(R.id.drawer_layout) as DrawerLayout?
