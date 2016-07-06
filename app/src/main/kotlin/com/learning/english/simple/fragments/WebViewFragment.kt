@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
+
 import com.learning.english.simple.R
 
 class WebViewFragment : Fragment() {
@@ -18,7 +19,7 @@ class WebViewFragment : Fragment() {
         val webView = fragmentView.findViewById(R.id.web_view) as WebView
 
         webView.settings.allowFileAccess = true
-        webView.loadUrl("file:///android_asset/Podstawy1.html")
+        webView.loadUrl("file:///android_asset/lekcja3.html")
         return fragmentView
     }
 
