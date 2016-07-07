@@ -2,6 +2,7 @@ package com.learning.english.simple.fragments
 
 
 import android.app.Fragment
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,8 +29,8 @@ class YoutubeFragment() : Fragment(), YouTubePlayer.OnInitializedListener {
         VIDEO_ID = arguments[VIDEO_ID_KEY] as String
         youtubePlayerFragment.initialize(Utils.GOOGLE_API_KEY, this)
         fragmentManager.beginTransaction()
-        .replace(R.id.fragment_youtube_player, youtubePlayerFragment)
-        .commit()
+                .replace(R.id.fragment_youtube_player, youtubePlayerFragment)
+                .commit()
         return fragmentView
     }
 
@@ -39,7 +40,16 @@ class YoutubeFragment() : Fragment(), YouTubePlayer.OnInitializedListener {
         if (!wasRestored) {
             player.cueVideo(VIDEO_ID)
         }
-
+        //player.setFullscreen(true)
+        player.setOnFullscreenListener(object : YouTubePlayer.OnFullscreenListener {
+            override fun onFullscreen(full: Boolean) {
+                if (full) {
+                    //activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                } else {
+                    activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+                }
+            }
+        })
         player.setPlayerStateChangeListener(object : YouTubePlayer.PlayerStateChangeListener {
             override fun onAdStarted() {
             }
