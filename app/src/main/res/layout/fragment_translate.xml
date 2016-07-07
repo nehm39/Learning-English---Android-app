@@ -12,6 +12,8 @@
     <Button
         android:id="@+id/btn_translate"
         android:text="Translate"
+        android:background="@drawable/btn_shape"
+        android:textColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
