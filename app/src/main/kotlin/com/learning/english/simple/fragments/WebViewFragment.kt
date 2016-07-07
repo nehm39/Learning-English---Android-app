@@ -21,6 +21,7 @@ class WebViewFragment : Fragment() {
         val fragmentView = inflater!!.inflate(R.layout.fragment_web_view, container, false)
         val webView = fragmentView.findViewById(R.id.web_view) as WebView
         webView.settings.allowFileAccess = true
+        webView.settings.javaScriptEnabled = false
         val fileName = arguments[FILE_NAME_KEY]
         webView.loadUrl("file:///android_asset/" + fileName)
         return fragmentView
