@@ -13,6 +13,7 @@ import android.view.MenuItem
 import com.learning.english.simple.api.YandexRetrofitSingleton
 import com.learning.english.simple.fragments.LessonsListFragment
 import com.learning.english.simple.fragments.StartFragment
+import com.learning.english.simple.fragments.TranslateFragment
 import com.learning.english.simple.model.YandexTranslation
 import retrofit2.Call
 import retrofit2.Callback
@@ -97,7 +98,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
-
+            fragment = TranslateFragment()
         } else if (id == R.id.nav_share) {
             fragment = LessonsListFragment()
             val bundle = Bundle()
