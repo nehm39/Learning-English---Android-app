@@ -24,4 +24,6 @@
         android:enabled="false"
         android:hint="output" />
 
+    <include layout="@layout/lesson_circle_view"/>
+
 </LinearLayout>
