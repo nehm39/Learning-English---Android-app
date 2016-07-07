@@ -8,4 +8,20 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="lessons_names">
+        <item>Lekcja 1: zaimki osobowe</item>
+        <item>Lekcja 2: liczba mnoga rzeczowników cz1</item>
+        <item>Lekcja 3: liczba mnoga rzeczowników cz2</item>
+        <item>Lekcja 4: określanie własności i przynależności</item>
+        <item>Lekcja 5: przypadki w języku angielskim</item>
+    </string-array>
+
+    <string-array name="lessons_names_files">
+        <item>lekcja1.html</item>
+        <item>lekcja2.html</item>
+        <item>lekcja3.html</item>
+        <item>lekcja4.html</item>
+        <item>lekcja5.html</item>
+    </string-array>
 </resources>

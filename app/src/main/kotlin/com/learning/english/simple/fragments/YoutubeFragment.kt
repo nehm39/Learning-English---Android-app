@@ -13,7 +13,11 @@ import com.google.android.youtube.player.YouTubePlayerFragment
 import com.learning.english.simple.R
 import com.learning.english.simple.Utils
 
-class YoutubeFragment : Fragment(), YouTubePlayer.OnInitializedListener {
+class YoutubeFragment() : Fragment(), YouTubePlayer.OnInitializedListener {
+    companion object {
+        const val VIDEO_ID_KEY = "VIDEO_ID_KEY"
+    }
+
     private val VIDEO_ID = "pAf9bNRdnbU"
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,

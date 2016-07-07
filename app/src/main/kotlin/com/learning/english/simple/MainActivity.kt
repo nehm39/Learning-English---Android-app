@@ -11,8 +11,8 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import com.learning.english.simple.api.YandexRetrofitSingleton
+import com.learning.english.simple.fragments.LessonsListFragment
 import com.learning.english.simple.fragments.StartFragment
-import com.learning.english.simple.fragments.WebViewFragment
 import com.learning.english.simple.fragments.YoutubeFragment
 import com.learning.english.simple.model.YandexTranslation
 import retrofit2.Call
@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
-            fragment = WebViewFragment()
+            fragment = LessonsListFragment()
         } else if (id == R.id.nav_send) {
             fragment = YoutubeFragment()
         }
