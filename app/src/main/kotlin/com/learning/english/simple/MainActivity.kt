@@ -42,17 +42,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .commit()
         }
 
-        val yandexService = YandexRetrofitSingleton.client
-        val call = yandexService.getTranslation("die", "en-pl")
-        call.enqueue(object : Callback<YandexTranslation> {
-            override fun onFailure(call: Call<YandexTranslation>?, t: Throwable?) {
-
-            }
-
-            override fun onResponse(call: Call<YandexTranslation>?, response: Response<YandexTranslation>?) {
-                val x = 2 as Int
-            }
-        })
+        Utils.showToast(this, "teeeeeeeeeeeeeeeeeest")
     }
 
     override fun onBackPressed() {
