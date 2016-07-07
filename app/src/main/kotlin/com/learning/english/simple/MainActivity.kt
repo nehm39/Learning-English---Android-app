@@ -13,7 +13,6 @@ import android.view.MenuItem
 import com.learning.english.simple.api.YandexRetrofitSingleton
 import com.learning.english.simple.fragments.LessonsListFragment
 import com.learning.english.simple.fragments.StartFragment
-import com.learning.english.simple.fragments.YoutubeFragment
 import com.learning.english.simple.model.YandexTranslation
 import retrofit2.Call
 import retrofit2.Callback
@@ -101,8 +100,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         } else if (id == R.id.nav_share) {
             fragment = LessonsListFragment()
+            val bundle = Bundle()
+            bundle.putInt(LessonsListFragment.LESSON_TYPE_KEY, Utils.LESSON_TYPE_TEXT)
+            fragment.arguments = bundle
         } else if (id == R.id.nav_send) {
-            fragment = YoutubeFragment()
+            fragment = LessonsListFragment()
+            val bundle = Bundle()
+            bundle.putInt(LessonsListFragment.LESSON_TYPE_KEY, Utils.LESSON_TYPE_VIDEO)
+            fragment.arguments = bundle
         }
 
         if (fragment != null) {

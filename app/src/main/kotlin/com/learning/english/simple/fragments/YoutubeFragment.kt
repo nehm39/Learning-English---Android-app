@@ -18,20 +18,19 @@ class YoutubeFragment() : Fragment(), YouTubePlayer.OnInitializedListener {
         const val VIDEO_ID_KEY = "VIDEO_ID_KEY"
     }
 
-    private val VIDEO_ID = "pAf9bNRdnbU"
+    private var VIDEO_ID = ""
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        val view = inflater!!.inflate(R.layout.fragment_youtube, container, false)
-
+        val fragmentView = inflater!!.inflate(R.layout.fragment_youtube, container, false)
         val youtubePlayerFragment = YouTubePlayerFragment()
+        VIDEO_ID = arguments[VIDEO_ID_KEY] as String
         youtubePlayerFragment.initialize(Utils.GOOGLE_API_KEY, this)
         fragmentManager.beginTransaction()
         .replace(R.id.fragment_youtube_player, youtubePlayerFragment)
         .commit()
-
-        return view
+        return fragmentView
     }
 
     override fun onInitializationSuccess(provider: YouTubePlayer.Provider?, player: YouTubePlayer?, wasRestored: Boolean) {
