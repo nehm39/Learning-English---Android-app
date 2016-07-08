@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">Simple English Learning</string>
+    <string name="app_name">English</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- Drawer -->
 
     <string name="drawer_menu_start">Start</string>
     <string name="drawer_menu_lessons">Lekcje</string>
@@ -15,6 +17,14 @@
     <string name="drawer_menu_translate">Tłumacz</string>
     <string name="drawer_menu_settings">Ustawienia</string>
     <string name="drawer_menu_info">Informacje</string>
+
+
+    <!-- Translate -->
+
+    <string name="voice_input">Wprowadzanie głosowe</string>
+    <string name="change_language">Wybór języka</string>
+
+    <!-- Text lessons array -->
 
     <string-array name="text_lessons_names">
         <item>Lekcja 1: zaimki osobowe</item>
@@ -31,6 +41,8 @@
         <item>lekcja4.html</item>
         <item>lekcja5.html</item>
     </string-array>
+
+    <!-- Video lessons array -->
 
     <string-array name="youtube_lessons_names">
         <item>Lekcja 1: gramatyka - czasowniki</item>
