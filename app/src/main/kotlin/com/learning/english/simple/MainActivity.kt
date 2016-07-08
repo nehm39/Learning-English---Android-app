@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navigationView!!.setNavigationItemSelectedListener(this)
 
         if (savedInstanceState == null) {
-            fragmentManager.beginTransaction()
+            supportFragmentManager.beginTransaction()
                     .add(R.id.fragment_container, StartFragment())
                     .commit()
 
@@ -58,13 +58,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.drawer_menu_translate -> {
                 fragment = TranslateFragment()
             }
-            R.id.drawer_menu_video -> {
+            R.id.drawer_menu_lessons -> {
                 fragment = LessonsListFragment()
                 val bundle = Bundle()
                 bundle.putInt(LessonsListFragment.LESSON_TYPE_KEY, Utils.LESSON_TYPE_TEXT)
                 fragment.arguments = bundle
             }
-            R.id.drawer_menu_lessons -> {
+            R.id.drawer_menu_video -> {
                 fragment = LessonsListFragment()
                 val bundle = Bundle()
                 bundle.putInt(LessonsListFragment.LESSON_TYPE_KEY, Utils.LESSON_TYPE_VIDEO)
