@@ -12,6 +12,7 @@ import android.view.*
 import android.widget.AbsListView
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import com.avast.android.dialogs.fragment.ListDialogFragment
 import com.avast.android.dialogs.fragment.ProgressDialogFragment
 import com.avast.android.dialogs.iface.IListDialogListener
@@ -34,7 +35,7 @@ class TranslateFragment : Fragment(), IListDialogListener {
     var fragmentView: View? = null
     var etxtTextToTranslate: EditText? = null
     var inputLayoutTextToTranslate: TextInputLayout? = null
-    var etxtOutput: EditText? = null
+    var etxtOutput: TextView? = null
     var btnTranslate: Button? = null
     var mainActivity: MainActivity? = null
 
@@ -45,7 +46,7 @@ class TranslateFragment : Fragment(), IListDialogListener {
         fragmentView = inflater!!.inflate(R.layout.fragment_translate, container, false)
         etxtTextToTranslate = fragmentView!!.findViewById(R.id.etxt_text_to_translate) as EditText
         inputLayoutTextToTranslate = fragmentView!!.findViewById(R.id.input_layout_text_to_translate) as TextInputLayout
-        etxtOutput = fragmentView!!.findViewById(R.id.etxt_translated_text) as EditText
+        etxtOutput = fragmentView!!.findViewById(R.id.etxt_translated_text) as TextView
         btnTranslate = fragmentView!!.findViewById(R.id.btn_translate) as Button
         translationOptionValue = SharedPreferencesUtils.getLanguageTranslationOption(activity)
         mainActivity = activity as MainActivity
