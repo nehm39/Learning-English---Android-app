@@ -25,6 +25,7 @@ class LessonAdapter(passedActivity: Activity, passedLessonsType : Int, passedLes
 
     override fun onBindViewHolder(holder: LessonViewHolder?, position: Int) {
         holder!!.name.text = lessonsNames[position].toString()
+        holder.circleText.text = (position + 1).toString()
         holder.name.setOnClickListener {
             val bundle = Bundle()
             if (lessonsType == Utils.LESSON_TYPE_VIDEO) {
@@ -51,9 +52,11 @@ class LessonAdapter(passedActivity: Activity, passedLessonsType : Int, passedLes
 
     class LessonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         internal var name: TextView
+        internal var circleText: TextView
 
         init {
             name = itemView.findViewById(R.id.lesson_item_name) as TextView
+            circleText = itemView.findViewById(R.id.lessons_circle_text) as TextView
         }
     }
 
