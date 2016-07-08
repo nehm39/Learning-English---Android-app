@@ -6,6 +6,9 @@
 
     <string name="action_settings">Settings</string>
 
+    <!-- General -->
+    <string name="empty_input_field">Pole nie może być puste</string>
+
     <!-- Drawer -->
 
     <string name="drawer_menu_start">Start</string>

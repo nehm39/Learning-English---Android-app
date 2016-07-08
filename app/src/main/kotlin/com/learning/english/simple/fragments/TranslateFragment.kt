@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
 import android.text.SpannableStringBuilder
 import android.view.*
@@ -32,6 +33,7 @@ class TranslateFragment : Fragment(), IListDialogListener {
 
     var fragmentView: View? = null
     var etxtTextToTranslate: EditText? = null
+    var inputLayoutTextToTranslate: TextInputLayout? = null
     var etxtOutput: EditText? = null
     var btnTranslate: Button? = null
     var mainActivity: MainActivity? = null
@@ -42,35 +44,48 @@ class TranslateFragment : Fragment(), IListDialogListener {
                               savedInstanceState: Bundle?): View? {
         fragmentView = inflater!!.inflate(R.layout.fragment_translate, container, false)
         etxtTextToTranslate = fragmentView!!.findViewById(R.id.etxt_text_to_translate) as EditText
+        inputLayoutTextToTranslate = fragmentView!!.findViewById(R.id.input_layout_text_to_translate) as TextInputLayout
         etxtOutput = fragmentView!!.findViewById(R.id.etxt_translated_text) as EditText
         btnTranslate = fragmentView!!.findViewById(R.id.btn_translate) as Button
         translationOptionValue = SharedPreferencesUtils.getLanguageTranslationOption(activity)
         mainActivity = activity as MainActivity
 
         btnTranslate!!.setOnClickListener {
-            val progressDialog = ProgressDialogFragment.createBuilder(activity, activity.supportFragmentManager)
-                    .setMessage(resources.getString(R.string.translation_in_progress))
-                    .setRequestCode(TRANSLATION_PROGRESS_DIALOG)
-                    .show();
-            val yandexService = YandexRetrofitSingleton.client
-            val call = yandexService.getTranslation(etxtTextToTranslate!!.text.toString(), translationOptionValue)
-            call.enqueue(object : Callback<YandexTranslation> {
-                override fun onFailure(call: Call<YandexTranslation>?, t: Throwable?) {
-                    progressDialog.dismiss()
-                }
-
-                override fun onResponse(call: Call<YandexTranslation>?, response: Response<YandexTranslation>?) {
-                    var finalString = ""
-                    response!!.body().getText().forEach {
-                        finalString += it;
+            if (validateTextInput()) {
+                val progressDialog = ProgressDialogFragment.createBuilder(activity, activity.supportFragmentManager)
+                        .setMessage(resources.getString(R.string.translation_in_progress))
+                        .setRequestCode(TRANSLATION_PROGRESS_DIALOG)
+                        .show();
+                val yandexService = YandexRetrofitSingleton.client
+                val call = yandexService.getTranslation(etxtTextToTranslate!!.text.toString(), translationOptionValue)
+                call.enqueue(object : Callback<YandexTranslation> {
+                    override fun onFailure(call: Call<YandexTranslation>?, t: Throwable?) {
+                        progressDialog.dismiss()
                     }
-                    etxtOutput!!.text = SpannableStringBuilder(finalString)
-                    progressDialog.dismiss()
-                }
-            })
+
+                    override fun onResponse(call: Call<YandexTranslation>?, response: Response<YandexTranslation>?) {
+                        var finalString = ""
+                        response!!.body().getText().forEach {
+                            finalString += it;
+                        }
+                        etxtOutput!!.text = SpannableStringBuilder(finalString)
+                        progressDialog.dismiss()
+                    }
+                })
+            }
         }
 
         return fragmentView
+    }
+
+    fun validateTextInput(): Boolean {
+        if (etxtTextToTranslate!!.text.trim().isEmpty()) {
+            inputLayoutTextToTranslate!!.error = resources.getString(R.string.empty_input_field)
+            return false
+        } else {
+            inputLayoutTextToTranslate!!.isErrorEnabled = false;
+            return true
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
