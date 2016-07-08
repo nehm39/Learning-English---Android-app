@@ -6,8 +6,15 @@
 
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_menu_start">Start</string>
+    <string name="drawer_menu_lessons">Lekcje</string>
+    <string name="drawer_menu_video">Wideo</string>
+    <string name="drawer_menu_cards">Fiszki</string>
+    <string name="drawer_menu_exercises">Ćwiczenia</string>
+    <string name="drawer_menu_dictionary">Słownik</string>
+    <string name="drawer_menu_translate">Tłumacz</string>
+    <string name="drawer_menu_settings">Ustawienia</string>
+    <string name="drawer_menu_info">Informacje</string>
 
     <string-array name="text_lessons_names">
         <item>Lekcja 1: zaimki osobowe</item>

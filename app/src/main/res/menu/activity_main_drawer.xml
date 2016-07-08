@@ -3,34 +3,44 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/drawer_menu_start"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:title="@string/drawer_menu_start" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/drawer_menu_lessons"
+            android:icon="@drawable/ic_lessons"
+            android:title="@string/drawer_menu_lessons" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/drawer_menu_video"
+            android:icon="@drawable/ic_video"
+            android:title="@string/drawer_menu_video" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Translate" />
-    </group>
+            android:id="@+id/drawer_menu_cards"
+            android:icon="@drawable/ic_cards"
+            android:title="@string/drawer_menu_cards" />
+        <item
+            android:id="@+id/drawer_menu_dictionary"
+            android:icon="@drawable/ic_dictionary"
+            android:title="@string/drawer_menu_dictionary" />
+        <item
+            android:id="@+id/drawer_menu_translate"
+            android:icon="@drawable/ic_translate"
+            android:title="@string/drawer_menu_translate" />
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Lekcje" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Wideo" />
-        </menu>
-    </item>
+        <item android:title="Nwm co tu napisac">
+            <menu>
+                <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/drawer_menu_settings"
+                    android:icon="@drawable/ic_settings"
+                    android:title="@string/drawer_menu_settings" />
+                <item
+                    android:id="@+id/drawer_menu_info"
+                    android:icon="@drawable/ic_info"
+                    android:title="@string/drawer_menu_info" />
+                </group>
+            </menu>
+        </item>
+    </group>
 
 </menu>
