@@ -8,6 +8,7 @@
 
     <!-- General -->
     <string name="empty_input_field">Pole nie może być puste</string>
+    <string name="no_result">Brak wyników</string>
 
     <!-- Drawer -->
 
