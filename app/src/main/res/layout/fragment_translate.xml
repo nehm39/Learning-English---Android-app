@@ -1,21 +1,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etxt_text_to_translate"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_password"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="text to translate" />
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/etxt_text_to_translate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="wprowadz tekst do tlumaczenia" />
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/btn_translate"
-        android:text="Translate"
-        android:background="@drawable/btn_shape"
-        android:textColor="@android:color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_shape"
+        android:text="Translate"
+        android:textColor="@android:color/white" />
 
     <EditText
         android:id="@+id/etxt_translated_text"
