@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import com.learning.english.simple.fragments.DictionaryFragment
 import com.learning.english.simple.fragments.LessonsListFragment
 import com.learning.english.simple.fragments.StartFragment
 import com.learning.english.simple.fragments.TranslateFragment
@@ -55,6 +56,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val fragmentManager = supportFragmentManager
         var fragment: Fragment? = null
         when (item.itemId) {
+            R.id.drawer_menu_dictionary -> {
+                fragment = DictionaryFragment()
+            }
             R.id.drawer_menu_translate -> {
                 fragment = TranslateFragment()
             }

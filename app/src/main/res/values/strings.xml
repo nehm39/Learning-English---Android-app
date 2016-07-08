@@ -74,4 +74,7 @@
         <item>zbjA4YkN_B0</item>
         <item>26FChHC902U</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
