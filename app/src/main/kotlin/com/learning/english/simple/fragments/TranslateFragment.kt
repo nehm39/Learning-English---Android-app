@@ -9,6 +9,7 @@ import android.widget.AbsListView
 import android.widget.Button
 import android.widget.EditText
 import com.avast.android.dialogs.fragment.ListDialogFragment
+import com.avast.android.dialogs.fragment.ProgressDialogFragment
 import com.avast.android.dialogs.iface.IListDialogListener
 import com.learning.english.simple.MainActivity
 import com.learning.english.simple.R
@@ -22,11 +23,13 @@ import retrofit2.Response
 class TranslateFragment : Fragment(), IListDialogListener {
 
     val TRANSLATION_OPTIONS_DIALOG = 1234
+    val TRANSLATION_PROGRESS_DIALOG = 1235
 
     var fragmentView: View? = null
     var etxtTextToTranslate: EditText? = null
     var etxtOutput: EditText? = null
     var btnTranslate: Button? = null
+    var mainActivity: MainActivity? = null
 
     var translationOptionValue = "en-pl"
 
@@ -37,13 +40,18 @@ class TranslateFragment : Fragment(), IListDialogListener {
         etxtOutput = fragmentView!!.findViewById(R.id.etxt_translated_text) as EditText
         btnTranslate = fragmentView!!.findViewById(R.id.btn_translate) as Button
         translationOptionValue = SharedPreferencesUtils.getLanguageTranslationOption(activity)
+        mainActivity = activity as MainActivity
 
         btnTranslate!!.setOnClickListener {
+            val progressDialog = ProgressDialogFragment.createBuilder(activity, activity.supportFragmentManager)
+                    .setMessage(resources.getString(R.string.translation_in_progress))
+                    .setRequestCode(TRANSLATION_PROGRESS_DIALOG)
+                    .show();
             val yandexService = YandexRetrofitSingleton.client
             val call = yandexService.getTranslation(etxtTextToTranslate!!.text.toString(), translationOptionValue)
             call.enqueue(object : Callback<YandexTranslation> {
                 override fun onFailure(call: Call<YandexTranslation>?, t: Throwable?) {
-
+                    progressDialog.dismiss()
                 }
 
                 override fun onResponse(call: Call<YandexTranslation>?, response: Response<YandexTranslation>?) {
@@ -52,6 +60,7 @@ class TranslateFragment : Fragment(), IListDialogListener {
                         finalString += it;
                     }
                     etxtOutput!!.text = SpannableStringBuilder(finalString)
+                    progressDialog.dismiss()
                 }
             })
         }
@@ -70,11 +79,10 @@ class TranslateFragment : Fragment(), IListDialogListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val mainActivity = activity as MainActivity
         when (item.itemId) {
             R.id.translate_change_language -> {
                 ListDialogFragment
-                        .createBuilder(activity, mainActivity.supportFragmentManager)
+                        .createBuilder(activity, mainActivity!!.supportFragmentManager)
                         .setTitle(resources.getString(R.string.translation_choose_language))
                         .setItems(resources.getStringArray(R.array.translations_options))
                         .setRequestCode(TRANSLATION_OPTIONS_DIALOG)
