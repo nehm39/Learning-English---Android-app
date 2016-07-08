@@ -1,7 +1,10 @@
 package com.learning.english.simple.fragments
 
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.speech.RecognizerIntent
 import android.support.v4.app.Fragment
 import android.text.SpannableStringBuilder
 import android.view.*
@@ -16,6 +19,7 @@ import com.learning.english.simple.R
 import com.learning.english.simple.api.YandexRetrofitSingleton
 import com.learning.english.simple.model.YandexTranslation
 import com.learning.english.simple.utils.SharedPreferencesUtils
+import com.learning.english.simple.utils.Utils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,6 +28,7 @@ class TranslateFragment : Fragment(), IListDialogListener {
 
     val TRANSLATION_OPTIONS_DIALOG = 1234
     val TRANSLATION_PROGRESS_DIALOG = 1235
+    val VOICE_REQUEST_OK = 7834
 
     var fragmentView: View? = null
     var etxtTextToTranslate: EditText? = null
@@ -92,8 +97,32 @@ class TranslateFragment : Fragment(), IListDialogListener {
                         .setTargetFragment(this, TRANSLATION_OPTIONS_DIALOG)
                         .show()
             }
+            R.id.translate_voice_input -> {
+                val i = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+                var voiceLanguage = "pl-PL"
+                if (translationOptionValue.equals("en-pl")) {
+                    voiceLanguage = "en-EN"
+                }
+                i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, voiceLanguage)
+                try {
+                    startActivityForResult(i, VOICE_REQUEST_OK)
+                } catch (e: Exception) {
+                    Utils.showToast(activity, resources.getString(R.string.voice_input_error))
+                }
+
+            }
         }
         return false
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == VOICE_REQUEST_OK && resultCode == Activity.RESULT_OK && data != null) {
+            val recordedText = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+            if (recordedText.size > 0) {
+                etxtTextToTranslate!!.text = SpannableStringBuilder(recordedText[0])
+            }
+        }
     }
 
     override fun onListItemSelected(value: CharSequence?, number: Int, requestCode: Int) {
