@@ -1,11 +1,11 @@
-package com.learning.english.simple
+package com.learning.english.simple.utils
 
 import android.app.Activity
-import android.content.Context
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import com.learning.english.simple.R
 
 object Utils {
     val GOOGLE_API_KEY = "AIzaSyAeGr6LNPxFm0Rkkbd27Nl36GHDprIZAkU"
@@ -23,5 +23,9 @@ object Utils {
         toast.duration = Toast.LENGTH_SHORT
         toast.view = layout
         toast.show()
+    }
+
+    fun findInArray(array : String) {
+
     }
 }

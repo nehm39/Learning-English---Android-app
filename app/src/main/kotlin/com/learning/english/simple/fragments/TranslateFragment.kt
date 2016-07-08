@@ -1,25 +1,34 @@
 package com.learning.english.simple.fragments
 
 
-import android.app.Fragment
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.text.SpannableStringBuilder
 import android.view.*
+import android.widget.AbsListView
 import android.widget.Button
 import android.widget.EditText
+import com.avast.android.dialogs.fragment.ListDialogFragment
+import com.avast.android.dialogs.iface.IListDialogListener
+import com.learning.english.simple.MainActivity
 import com.learning.english.simple.R
 import com.learning.english.simple.api.YandexRetrofitSingleton
 import com.learning.english.simple.model.YandexTranslation
+import com.learning.english.simple.utils.SharedPreferencesUtils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class TranslateFragment : Fragment() {
+class TranslateFragment : Fragment(), IListDialogListener {
 
-    var fragmentView : View? = null
-    var etxtTextToTranslate : EditText? = null
-    var etxtOutput : EditText? = null
-    var btnTranslate : Button? = null
+    val TRANSLATION_OPTIONS_DIALOG = 1234
+
+    var fragmentView: View? = null
+    var etxtTextToTranslate: EditText? = null
+    var etxtOutput: EditText? = null
+    var btnTranslate: Button? = null
+
+    var translationOptionValue = "en-pl"
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -27,10 +36,11 @@ class TranslateFragment : Fragment() {
         etxtTextToTranslate = fragmentView!!.findViewById(R.id.etxt_text_to_translate) as EditText
         etxtOutput = fragmentView!!.findViewById(R.id.etxt_translated_text) as EditText
         btnTranslate = fragmentView!!.findViewById(R.id.btn_translate) as Button
+        translationOptionValue = SharedPreferencesUtils.getLanguageTranslationOption(activity)
 
         btnTranslate!!.setOnClickListener {
             val yandexService = YandexRetrofitSingleton.client
-            val call = yandexService.getTranslation(etxtTextToTranslate!!.text.toString(), "en-pl")
+            val call = yandexService.getTranslation(etxtTextToTranslate!!.text.toString(), translationOptionValue)
             call.enqueue(object : Callback<YandexTranslation> {
                 override fun onFailure(call: Call<YandexTranslation>?, t: Throwable?) {
 
@@ -60,7 +70,31 @@ class TranslateFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val mainActivity = activity as MainActivity
+        when (item.itemId) {
+            R.id.translate_change_language -> {
+                ListDialogFragment
+                        .createBuilder(activity, mainActivity.supportFragmentManager)
+                        .setTitle(resources.getString(R.string.translation_choose_language))
+                        .setItems(resources.getStringArray(R.array.translations_options))
+                        .setRequestCode(TRANSLATION_OPTIONS_DIALOG)
+                        .setChoiceMode(AbsListView.CHOICE_MODE_SINGLE)
+                        .setSelectedItem(resources.getStringArray(R.array.translations_options_values).indexOf(translationOptionValue))
+                        .setCancelable(false)
+                        .setTargetFragment(this, TRANSLATION_OPTIONS_DIALOG)
+                        .show()
+            }
+        }
         return false
+    }
+
+    override fun onListItemSelected(value: CharSequence?, number: Int, requestCode: Int) {
+        when (requestCode) {
+            TRANSLATION_OPTIONS_DIALOG -> {
+                translationOptionValue = resources.getStringArray(R.array.translations_options_values)[number]
+                SharedPreferencesUtils.saveLanguageTranslationOption(activity, translationOptionValue)
+            }
+        }
     }
 
 }

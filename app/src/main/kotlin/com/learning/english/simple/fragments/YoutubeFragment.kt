@@ -12,7 +12,7 @@ import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerFragment
 import com.learning.english.simple.R
-import com.learning.english.simple.Utils
+import com.learning.english.simple.utils.Utils
 
 class YoutubeFragment() : Fragment(), YouTubePlayer.OnInitializedListener {
     companion object {

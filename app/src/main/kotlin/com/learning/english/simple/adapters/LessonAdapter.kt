@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.learning.english.simple.R
-import com.learning.english.simple.Utils
+import com.learning.english.simple.utils.Utils
 import com.learning.english.simple.fragments.WebViewFragment
 import com.learning.english.simple.fragments.YoutubeFragment
 

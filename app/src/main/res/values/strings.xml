@@ -23,6 +23,16 @@
 
     <string name="voice_input">Wprowadzanie głosowe</string>
     <string name="change_language">Wybór języka</string>
+    <string name="translation_choose_language">Wybierz sposób tłumaczenia</string>
+    <string-array name="translations_options">
+        <item>angielski-polski</item>
+        <item>polski-angielski</item>
+    </string-array>
+    <string-array name="translations_options_values">
+        <item>en-pl</item>
+        <item>pl-en</item>
+    </string-array>
+
 
     <!-- Text lessons array -->
 
