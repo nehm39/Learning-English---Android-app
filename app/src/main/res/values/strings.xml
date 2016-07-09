@@ -9,6 +9,7 @@
     <!-- General -->
     <string name="empty_input_field">Pole nie może być puste</string>
     <string name="no_result">Brak wyników</string>
+    <string name="error_try_again">Wystąpił błąd, spróbuj ponownie</string>
 
     <!-- Drawer -->
 
@@ -22,6 +23,8 @@
     <string name="drawer_menu_settings">Ustawienia</string>
     <string name="drawer_menu_info">Informacje</string>
 
+    <!-- Dictionary -->
+    <string name="dictionary_hint">Wprowadź słowo po angielsku</string>
 
     <!-- Translate -->
 
