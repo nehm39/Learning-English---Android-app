@@ -24,6 +24,7 @@ class DictionaryFragment : Fragment() {
     var txtWordName: TextView? = null
     var txtWordDefinition: TextView? = null
     var btnSearch: ImageButton? = null
+    var btnAudio: ImageButton? = null
     var etxtSearchedWord: EditText? = null
 
     var resultLayout: RelativeLayout? = null
@@ -33,6 +34,9 @@ class DictionaryFragment : Fragment() {
     var definitionResponse: Response<List<DictionaryDefinition>>? = null
     var audioResponse: Response<List<DictionaryAudio>>? = null
 
+    var audioLock = false
+
+    var mPlayer: MediaPlayer? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -40,10 +44,18 @@ class DictionaryFragment : Fragment() {
         txtWordName = fragmentView.findViewById(R.id.dictionary_word_text) as TextView
         txtWordDefinition = fragmentView.findViewById(R.id.dictionary_definitions_text) as TextView
         btnSearch = fragmentView.findViewById(R.id.dictionary_img_btn) as ImageButton
+        btnAudio = fragmentView.findViewById(R.id.dictionary_play_audio_btn) as ImageButton
         etxtSearchedWord = fragmentView.findViewById(R.id.etxt_searched_word) as EditText
         resultLayout = fragmentView.findViewById(R.id.dictionary_result_layout) as RelativeLayout
         emptyLayout = fragmentView.findViewById(R.id.dictionary_empty_layout) as RelativeLayout
         progressBar = fragmentView.findViewById(R.id.dictionary_progress_bar) as ProgressBar
+
+        mPlayer = MediaPlayer()
+        mPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
+        mPlayer!!.setOnCompletionListener {
+            mPlayer!!.stop()
+            audioLock = false
+        }
 
         btnSearch!!.setOnClickListener {
             btnSearch!!.isEnabled = false
@@ -80,6 +92,20 @@ class DictionaryFragment : Fragment() {
 
             })
         }
+
+        btnAudio!!.setOnClickListener {
+            if (!audioLock) {
+                audioLock = true
+                try {
+                    mPlayer!!.prepare();
+                    mPlayer!!.start();
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+
+        }
+
         return fragmentView
     }
 
@@ -101,17 +127,15 @@ class DictionaryFragment : Fragment() {
                 }
                 definition = definition.replace("   ", " - ")
                 definition = definition.replace("  ", " ")
-                txtWordName!!.text = etxtSearchedWord!!.text
+                txtWordName!!.text = etxtSearchedWord!!.text.toString()
                 txtWordDefinition!!.text = definition
 
-                val mPlayer = MediaPlayer()
-                mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
-                try {
-                    mPlayer.setDataSource(audioBody[0].fileUrl)
-                    mPlayer.prepare();
-                    mPlayer.start();
-                } catch (e: Exception) {
-                    e.printStackTrace()
+                if (audioBody.isEmpty()) {
+                    btnAudio!!.visibility = View.GONE
+                } else {
+                    btnAudio!!.visibility = View.VISIBLE
+                    mPlayer!!.reset()
+                    mPlayer!!.setDataSource(audioBody[0].fileUrl)
                 }
             }
         }
