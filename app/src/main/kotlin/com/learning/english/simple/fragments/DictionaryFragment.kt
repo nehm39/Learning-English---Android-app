@@ -1,15 +1,18 @@
 package com.learning.english.simple.fragments
 
 
+import android.app.Activity
+import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.speech.RecognizerIntent
 import android.support.v4.app.Fragment
+import android.text.SpannableStringBuilder
 import android.transition.Visibility
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.*
+import com.avast.android.dialogs.fragment.ListDialogFragment
 import com.learning.english.simple.R
 import com.learning.english.simple.api.DictionaryRetrofitSingleton
 import com.learning.english.simple.model.DictionaryAudio
@@ -137,6 +140,44 @@ class DictionaryFragment : Fragment() {
                     mPlayer!!.reset()
                     mPlayer!!.setDataSource(audioBody[0].fileUrl)
                 }
+            }
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.dictionary_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    val VOICE_REQUEST_OK = 7831
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.dictionary_voice_input -> {
+                val i = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+                i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "en-US")
+                try {
+                    startActivityForResult(i, VOICE_REQUEST_OK)
+                } catch (e: Exception) {
+                    Utils.showToast(activity, resources.getString(R.string.voice_input_error))
+                }
+
+            }
+        }
+        return false
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == VOICE_REQUEST_OK && resultCode == Activity.RESULT_OK && data != null) {
+            val recordedText = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+            if (recordedText.size > 0) {
+                etxtSearchedWord!!.text = SpannableStringBuilder(recordedText[0])
             }
         }
     }

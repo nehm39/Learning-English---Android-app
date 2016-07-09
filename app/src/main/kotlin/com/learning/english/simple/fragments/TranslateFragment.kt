@@ -117,9 +117,9 @@ class TranslateFragment : Fragment(), IListDialogListener {
                 val i = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
                 var voiceLanguage = "pl-PL"
                 if (translationOptionValue.equals("en-pl")) {
-                    voiceLanguage = "en-EN"
+                    voiceLanguage = "en-US"
                 }
-                i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, voiceLanguage)
+                i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, voiceLanguage)
                 try {
                     startActivityForResult(i, VOICE_REQUEST_OK)
                 } catch (e: Exception) {
