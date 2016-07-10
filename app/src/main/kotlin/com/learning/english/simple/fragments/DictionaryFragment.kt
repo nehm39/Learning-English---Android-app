@@ -68,8 +68,8 @@ class DictionaryFragment : Fragment() {
             audioResponse = null
             definitionResponse = null
 
-            val dictionaryService = DictionaryRetrofitSingleton.client
-            val call = dictionaryService.getDefinitions(etxtSearchedWord!!.text.toString())
+            val dictionaryService = DictionaryRetrofitSingleton.client  
+            val call = dictionaryService.getDefinitions(etxtSearchedWord!!.text.trim().toString().toLowerCase())
             call.enqueue(object : Callback<List<DictionaryDefinition>> {
                 override fun onResponse(call: Call<List<DictionaryDefinition>>?, response: Response<List<DictionaryDefinition>>?) {
                     definitionResponse = response
@@ -82,7 +82,7 @@ class DictionaryFragment : Fragment() {
 
             })
 
-            val callForAudio = dictionaryService.getAudio(etxtSearchedWord!!.text.toString())
+            val callForAudio = dictionaryService.getAudio(etxtSearchedWord!!.text.trim().toString().toLowerCase())
             callForAudio.enqueue(object : Callback<List<DictionaryAudio>> {
                 override fun onResponse(call: Call<List<DictionaryAudio>>?, response: Response<List<DictionaryAudio>>?) {
                     audioResponse = response
@@ -166,6 +166,7 @@ class DictionaryFragment : Fragment() {
                 } catch (e: Exception) {
                     Utils.showToast(activity, resources.getString(R.string.voice_input_error))
                 }
+
 
             }
         }
