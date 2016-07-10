@@ -23,8 +23,9 @@
             <TextView
                 android:id="@+id/lesson_item_name"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_height="64dp"
+                android:text="Asdasdas asdas d asd asdasdadasdas"
+                android:layout_marginLeft="10dp" />
 
         </LinearLayout>
 
