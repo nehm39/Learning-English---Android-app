@@ -14,7 +14,7 @@ import com.google.android.youtube.player.YouTubePlayerFragment
 import com.learning.english.simple.R
 import com.learning.english.simple.utils.Utils
 
-class YoutubeFragment() : Fragment(), YouTubePlayer.OnInitializedListener {
+class YoutubeFragment() : android.support.v4.app.Fragment(), YouTubePlayer.OnInitializedListener {
     companion object {
         const val VIDEO_ID_KEY = "VIDEO_ID_KEY"
     }
@@ -28,7 +28,7 @@ class YoutubeFragment() : Fragment(), YouTubePlayer.OnInitializedListener {
         val youtubePlayerFragment = YouTubePlayerFragment()
         VIDEO_ID = arguments[VIDEO_ID_KEY] as String
         youtubePlayerFragment.initialize(Utils.GOOGLE_API_KEY, this)
-        fragmentManager.beginTransaction()
+        activity.fragmentManager.beginTransaction()
                 .replace(R.id.fragment_youtube_player, youtubePlayerFragment)
                 .commit()
         return fragmentView
