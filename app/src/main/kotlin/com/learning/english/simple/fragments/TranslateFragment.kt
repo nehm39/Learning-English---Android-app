@@ -8,6 +8,7 @@ import android.speech.RecognizerIntent
 import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
 import android.text.SpannableStringBuilder
+import android.text.method.ScrollingMovementMethod
 import android.view.*
 import android.widget.AbsListView
 import android.widget.Button
@@ -47,6 +48,7 @@ class TranslateFragment : Fragment(), IListDialogListener {
         etxtTextToTranslate = fragmentView!!.findViewById(R.id.etxt_text_to_translate) as EditText
         inputLayoutTextToTranslate = fragmentView!!.findViewById(R.id.input_layout_text_to_translate) as TextInputLayout
         etxtOutput = fragmentView!!.findViewById(R.id.etxt_translated_text) as TextView
+        etxtOutput!!.setMovementMethod(ScrollingMovementMethod());
         btnTranslate = fragmentView!!.findViewById(R.id.btn_translate) as Button
         translationOptionValue = SharedPreferencesUtils.getLanguageTranslationOption(activity)
         mainActivity = activity as MainActivity
