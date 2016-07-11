@@ -3,4 +3,5 @@
     <color name="colorPrimary">#7BAA4E</color>
     <color name="colorPrimaryDark">#7BAA4E</color>
     <color name="colorAccent">#7BAA4E</color>
+    <color name="lessons_background">#343634</color>
 </resources>
