@@ -122,7 +122,6 @@
     <!-- Exercises array -->
 
     <string-array name="exercises_names">
-        <item>cat.jpg</item>
-        <item>dog.jpg</item>
+        <item>cat</item>
     </string-array>
 </resources>
