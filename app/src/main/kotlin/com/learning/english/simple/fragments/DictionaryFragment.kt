@@ -7,12 +7,11 @@ import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
 import android.text.SpannableStringBuilder
-import android.transition.Visibility
 import android.view.*
 import android.widget.*
-import com.avast.android.dialogs.fragment.ListDialogFragment
 import com.learning.english.simple.R
 import com.learning.english.simple.api.DictionaryRetrofitSingleton
 import com.learning.english.simple.model.DictionaryAudio
@@ -21,7 +20,6 @@ import com.learning.english.simple.utils.Utils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.IOException
 
 class DictionaryFragment : Fragment() {
     var txtWordName: TextView? = null
@@ -29,6 +27,7 @@ class DictionaryFragment : Fragment() {
     var btnSearch: ImageButton? = null
     var btnAudio: ImageButton? = null
     var etxtSearchedWord: EditText? = null
+    var searchedWordTextInput: TextInputLayout? = null
 
     var resultLayout: RelativeLayout? = null
     var emptyLayout: RelativeLayout? = null
@@ -52,6 +51,7 @@ class DictionaryFragment : Fragment() {
         resultLayout = fragmentView.findViewById(R.id.dictionary_result_layout) as RelativeLayout
         emptyLayout = fragmentView.findViewById(R.id.dictionary_empty_layout) as RelativeLayout
         progressBar = fragmentView.findViewById(R.id.dictionary_progress_bar) as ProgressBar
+        searchedWordTextInput = fragmentView.findViewById(R.id.input_layout_text_to_translate) as TextInputLayout
 
         mPlayer = MediaPlayer()
         mPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
@@ -61,39 +61,41 @@ class DictionaryFragment : Fragment() {
         }
 
         btnSearch!!.setOnClickListener {
-            btnSearch!!.isEnabled = false
-            progressBar!!.visibility = View.VISIBLE
-            emptyLayout!!.visibility = View.GONE
-            resultLayout!!.visibility = View.GONE
-            audioResponse = null
-            definitionResponse = null
+            if (validateTextInput()) {
+                btnSearch!!.isEnabled = false
+                progressBar!!.visibility = View.VISIBLE
+                emptyLayout!!.visibility = View.GONE
+                resultLayout!!.visibility = View.GONE
+                audioResponse = null
+                definitionResponse = null
 
-            val dictionaryService = DictionaryRetrofitSingleton.client  
-            val call = dictionaryService.getDefinitions(etxtSearchedWord!!.text.trim().toString().toLowerCase())
-            call.enqueue(object : Callback<List<DictionaryDefinition>> {
-                override fun onResponse(call: Call<List<DictionaryDefinition>>?, response: Response<List<DictionaryDefinition>>?) {
-                    definitionResponse = response
-                    validateResults()
-                }
+                val dictionaryService = DictionaryRetrofitSingleton.client
+                val call = dictionaryService.getDefinitions(etxtSearchedWord!!.text.trim().toString().toLowerCase())
+                call.enqueue(object : Callback<List<DictionaryDefinition>> {
+                    override fun onResponse(call: Call<List<DictionaryDefinition>>?, response: Response<List<DictionaryDefinition>>?) {
+                        definitionResponse = response
+                        validateResults()
+                    }
 
-                override fun onFailure(call: Call<List<DictionaryDefinition>>?, t: Throwable?) {
-                    Utils.showToast(activity, resources.getString(R.string.error_try_again))
-                }
+                    override fun onFailure(call: Call<List<DictionaryDefinition>>?, t: Throwable?) {
+                        Utils.showToast(activity, resources.getString(R.string.error_try_again))
+                    }
 
-            })
+                })
 
-            val callForAudio = dictionaryService.getAudio(etxtSearchedWord!!.text.trim().toString().toLowerCase())
-            callForAudio.enqueue(object : Callback<List<DictionaryAudio>> {
-                override fun onResponse(call: Call<List<DictionaryAudio>>?, response: Response<List<DictionaryAudio>>?) {
-                    audioResponse = response
-                    validateResults()
-                }
+                val callForAudio = dictionaryService.getAudio(etxtSearchedWord!!.text.trim().toString().toLowerCase())
+                callForAudio.enqueue(object : Callback<List<DictionaryAudio>> {
+                    override fun onResponse(call: Call<List<DictionaryAudio>>?, response: Response<List<DictionaryAudio>>?) {
+                        audioResponse = response
+                        validateResults()
+                    }
 
-                override fun onFailure(call: Call<List<DictionaryAudio>>?, t: Throwable?) {
-                    Utils.showToast(activity, resources.getString(R.string.error_try_again))
-                }
+                    override fun onFailure(call: Call<List<DictionaryAudio>>?, t: Throwable?) {
+                        Utils.showToast(activity, resources.getString(R.string.error_try_again))
+                    }
 
-            })
+                })
+            }
         }
 
         btnAudio!!.setOnClickListener {
@@ -141,6 +143,16 @@ class DictionaryFragment : Fragment() {
                     mPlayer!!.setDataSource(audioBody[0].fileUrl)
                 }
             }
+        }
+    }
+
+    fun validateTextInput(): Boolean {
+        if (etxtSearchedWord!!.text.trim().isEmpty()) {
+            searchedWordTextInput!!.error = resources.getString(R.string.empty_input_field)
+            return false
+        } else {
+            searchedWordTextInput!!.isErrorEnabled = false;
+            return true
         }
     }
 
