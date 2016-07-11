@@ -101,28 +101,204 @@
     <!-- Cards array -->
 
     <string-array name="cards_names">
-        <item>niki</item>
-        <item>wniki</item>
-        <item>mki</item>
-        <item>otniki</item>
-        <item>owki</item>
-        <item>niki modalne</item>
-        <item>test</item>
-        <item> nieokreślone</item>
-        <item>iacz saksoński</item>
-        <item>bniki</item>
+        <item>aligator</item>
+        <item>antylopa</item>
+        <item>badminton</item>
+        <item>badminton</item>
+        <item>baran</item>
+        <item>bawół</item>
+        <item>bejzbol</item>
+        <item>bieganie</item>
+        <item>bilard</item>
+        <item>bizon</item>
+        <item>boks</item>
+        <item>borsuk</item>
+        <item>bóbr </item>
+        <item>byk</item>
+        <item>chomik</item>
+        <item>ciele</item>
+        <item>daniel</item>
+        <item>delfin</item>
+        <item>delfin butlonosy</item>
+        <item>diabeł tasmański</item>
+        <item>dingo (pies)</item>
+        <item>dromader (wielbłąd) </item>
+        <item>dzik</item>
+        <item>dziobak</item>
+        <item>dżudo</item>
+        <item>fenek</item>
+        <item>foka</item>
+        <item>fretka</item>
+        <item>gazela</item>
+        <item>gepard</item>
+        <item>hokej na lodzie</item>
+        <item>kajakarstwo</item>
+        <item>karate</item>
+        <item>kolarstwo</item>
+        <item>koszykówka</item>
+        <item>kręgle</item>
+        <item>kręgle</item>
+        <item>łucznictwo</item>
+        <item>łyżwiarstwo</item>
+        <item>narciarstwo</item>
+        <item>niedźwiedź czarny</item>
+        <item>nosorożec</item>
+        <item>nurkowanie ze sprzętem</item>
+        <item>ocelot</item>
+        <item>orangutan</item>
+        <item>orka</item>
+        <item>osioł</item>
+        <item>owca</item>
+        <item>pałanka</item>
+        <item>pancernik</item>
+        <item>panda</item>
+        <item>panda</item>
+        <item>pantera</item>
+        <item>pawian</item>
+        <item>pchnięcie kulą</item>
+        <item>pies</item>
+        <item>piłka nożna</item>
+        <item>pływanie</item>
+        <item>prosiak</item>
+        <item>puma</item>
+        <item>renifer</item>
+        <item>ryś</item>
+        <item>rzutki</item>
+        <item>sarna</item>
+        <item>serwal</item>
+        <item>siatkówka</item>
+        <item>skok w dal</item>
+        <item>skoki narciarskie</item>
+        <item>skunks</item>
+        <item>słoń</item>
+        <item>szczur</item>
+        <item>szermierka</item>
+        <item>szop pracz</item>
+        <item>szympans</item>
+        <item>szynszyla</item>
+        <item>świnia</item>
+        <item>świnka morska</item>
+        <item>świstak</item>
+        <item>tchórz</item>
+        <item>tenis stołowy</item>
+        <item>tygrys</item>
+        <item>tygrysica</item>
+        <item>nietoperz</item>
+        <item>wędkarstwo</item>
+        <item>wielbłąd</item>
+        <item>wieloryb</item>
+        <item>wiewiórka</item>
+        <item>wilk</item>
+        <item>windsurfing</item>
+        <item>wół</item>
+        <item>wspinaczka</item>
+        <item>wydra</item>
+        <item>wyścigi</item>
+        <item>wyścigi konne</item>
+        <item>zając hare   </item>
+        <item>zebra</item>
+        <item>żbik</item>
+        <item>żyrafa</item>
     </string-array>
 
     <string-array name="cards_names_values">
-        <item>niki</item>
-        <item>wniki</item>
-        <item>mki</item>
-        <item>otniki</item>
-        <item>owki</item>
-        <item>niki modalne</item>
-        <item>test</item>
-        <item> nieokreślone</item>
-        <item>iacz saksoński</item>
-        <item>bniki</item>
+        <item>alligator   </item>
+        <item>antelope   </item>
+        <item>badminton</item>
+        <item>badminton </item>
+        <item>ram</item>
+        <item>buffalo  </item>
+        <item>baseball   </item>
+        <item>running  </item>
+        <item>pool, snooker</item>
+        <item>bison   </item>
+        <item>boxing</item>
+        <item>badger   </item>
+        <item>beaver   </item>
+        <item>bull   </item>
+        <item>hamster   </item>
+        <item>calf   </item>
+        <item>fallow deer</item>
+        <item>dolphin</item>
+        <item>bottlenose dolphin </item>
+        <item>tasmanian devil  </item>
+        <item>dingo dog  </item>
+        <item>dromedary camel</item>
+        <item>wild boar</item>
+        <item>platypus</item>
+        <item>judo</item>
+        <item>fennec fox</item>
+        <item>seal  </item>
+        <item>ferret   </item>
+        <item>gazelle   </item>
+        <item>cheetah </item>
+        <item>ice hockey</item>
+        <item>canoeing </item>
+        <item>karate</item>
+        <item>cycling</item>
+        <item>basketball</item>
+        <item>bowling </item>
+        <item>bowling</item>
+        <item>archery</item>
+        <item>skating</item>
+        <item>skiing </item>
+        <item>black bear </item>
+        <item>rhinoceros   </item>
+        <item>scuba-diving </item>
+        <item>ocelot   </item>
+        <item>orangutan </item>
+        <item>orca</item>
+        <item>donkey   </item>
+        <item>sheep   </item>
+        <item>possum   </item>
+        <item>armadillo</item>
+        <item>panda   </item>
+        <item>giant panda</item>
+        <item>leopard   </item>
+        <item>baboon </item>
+        <item>shot put </item>
+        <item>dog</item>
+        <item>football </item>
+        <item>swimming </item>
+        <item>piglet   </item>
+        <item>cougar</item>
+        <item>reindeer   </item>
+        <item>lynx  </item>
+        <item>darts</item>
+        <item>roe deer </item>
+        <item>serval </item>
+        <item>volleyball </item>
+        <item>long-jump </item>
+        <item>ski jumping</item>
+        <item>skunk   </item>
+        <item>elephant   </item>
+        <item>rat   </item>
+        <item>fencing </item>
+        <item>common raccoon </item>
+        <item>chimpanzee   </item>
+        <item>chinchilla  </item>
+        <item>pig   </item>
+        <item>guinea pig </item>
+        <item>groundhog   </item>
+        <item>polecat  </item>
+        <item>(ping-pong) table tennis </item>
+        <item>tiger  </item>
+        <item>tigress</item>
+        <item>bat</item>
+        <item>fishing</item>
+        <item>camel</item>
+        <item>whale </item>
+        <item>squirrel   </item>
+        <item>wolf   </item>
+        <item>windsurfing </item>
+        <item>ox </item>
+        <item>climbing </item>
+        <item>otter   </item>
+        <item>racing</item>
+        <item>horse racing </item>
+        <item>hare</item>
+        <item>zebra     </item>
+        <item>wildcat</item>
+        <item>giraffe  </item>
     </string-array>
 </resources>
