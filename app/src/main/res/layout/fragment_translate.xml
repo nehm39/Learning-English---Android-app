@@ -1,49 +1,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="2"
     android:layout_margin="@dimen/activity_horizontal_margin"
-    >
+    android:orientation="vertical"
+    android:weightSum="2">
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_text_to_translate"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:background="#107BAA4E">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/etxt_text_to_translate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tekst do tlumaczenia"
             android:gravity="top"
-            android:lines="5"
-            android:minLines="1"
+            android:hint="@string/write_text_to_translate"
+            android:lines="7"
             android:linksClickable="false"
-             />
+            android:minLines="1" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
-
         android:id="@+id/btn_translate"
-        android:layout_width="337dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:background="@drawable/btn_shape"
-        android:text="Tlumacz"
-        android:textColor="@android:color/white"
-        />
+        android:text="@string/translate"
+        android:textColor="@android:color/white" />
 
-
-
-
-        <TextView
-            android:layout_height="match_parent"
-            android:id="@+id/etxt_translated_text"
-            android:layout_gravity="center_vertical"
-            android:gravity="top"
-            android:textSize="22sp"
-            android:layout_width="match_parent"/>
-
-
+    <TextView
+        android:id="@+id/etxt_translated_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"
+        android:gravity="top"
+        android:textColor="@android:color/black"
+        android:textSize="22sp" />
 
 </LinearLayout>

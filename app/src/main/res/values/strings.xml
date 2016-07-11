@@ -33,6 +33,8 @@
     <string name="translation_choose_language">Wybierz sposób tłumaczenia</string>
     <string name="translation_in_progress">Tłumaczenie…</string>
     <string name="voice_input_error">Błąd inicjalizacji wprowadzania głosowego</string>
+    <string name="translate">Tłumacz</string>
+    <string name="write_text_to_translate">Wprowadź tekst do przetłumaczenia</string>
     <string-array name="translations_options">
         <item>angielski-polski</item>
         <item>polski-angielski</item>
@@ -46,11 +48,11 @@
     <!-- Text lessons array -->
 
     <string-array name="text_lessons_names">
-        <item>Lekcja 1: zaimki osobowe</item>
-        <item>Lekcja 2: liczba mnoga rzeczowników cz1</item>
-        <item>Lekcja 3: liczba mnoga rzeczowników cz2</item>
-        <item>Lekcja 4: określanie własności i przynależności</item>
-        <item>Lekcja 5: przypadki w języku angielskim</item>
+        <item>Lekcja 1\n Zaimki osobowe</item>
+        <item>Lekcja 2\n Liczba mnoga rzeczowników cz1</item>
+        <item>Lekcja 3\n Liczba mnoga rzeczowników cz2</item>
+        <item>Lekcja 4\n Określanie własności i przynależności</item>
+        <item>Lekcja 5\n Przypadki w języku angielskim</item>
     </string-array>
 
     <string-array name="text_lessons_names_files">
@@ -64,11 +66,16 @@
     <!-- Video lessons array -->
 
     <string-array name="youtube_lessons_names">
-        <item>Lekcja 1: gramatyka - czasowniki</item>
-        <item>Lekcja 2: gramatyka - rzeczowniki</item>
-        <item>Lekcja 3: gramatyka - przedimki</item>
-        <item>Lekcja 4: gramatyka - przymiotniki</item>
-        <item>Lekcja 5: gramatyka - przyslowki</item>
+        <item>Lekcja 1\n Gramatyka - czasowniki</item>
+        <item>Lekcja 2\n Gramatyka - rzeczowniki</item>
+        <item>Lekcja 3\n Gramatyka - przedimki</item>
+        <item>Lekcja 4\n Gramatyka - przymiotniki</item>
+        <item>Lekcja 5\n Gramatyka - przyslowki</item>
+        <item>Lekcja 6\n Gramatyka - czasowniki modalne</item>
+        <item>Lekcja 7\n Gramatyka - zaimki</item>
+        <item>Lekcja 8\n Gramatyka - zaimki nieokreślone</item>
+        <item>Lekcja 9\n Gramatyka - dopełniacz saksoński</item>
+        <item>Lekcja 10\n Gramatyka - liczebniki</item>
     </string-array>
 
     <string-array name="youtube_lessons_names_files">
@@ -77,6 +84,11 @@
         <item>y34-TMVZIIw</item>
         <item>zbjA4YkN_B0</item>
         <item>26FChHC902U</item>
+        <item>p133Fgyfxs0</item>
+        <item>lGFuK71q78k</item>
+        <item>w5krG-1Z5Q8</item>
+        <item>0xUhNkbdnKw</item>
+        <item>CDzuIuNls04</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
