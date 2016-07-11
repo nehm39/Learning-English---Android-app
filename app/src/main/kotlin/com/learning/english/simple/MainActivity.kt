@@ -1,5 +1,6 @@
 package com.learning.english.simple
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.os.Handler
 import android.support.design.widget.NavigationView
@@ -10,6 +11,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import android.widget.TextView
 import com.learning.english.simple.fragments.*
 import com.learning.english.simple.utils.Utils
 
@@ -39,6 +41,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             navigationView.getMenu().findItem(R.id.drawer_menu_start).setChecked(true);
         }
+
+        val headerLayout = navigationView.getHeaderView(0)
+        val headerAppName = headerLayout.findViewById(R.id.nav_header_app_name) as TextView
+        val typeface = Typeface.createFromAsset(assets, "mightype.otf")
+        headerAppName.setTypeface(typeface)
     }
 
     override fun onBackPressed() {
