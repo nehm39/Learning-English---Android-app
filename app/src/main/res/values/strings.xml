@@ -12,6 +12,7 @@
     <string name="error_try_again">Wystąpił błąd, spróbuj ponownie</string>
     <string name="connection_error">Brak połączenia z internetem</string>
     <string name="youtube_connection_error">Wystąpił błąd podczas próby połączenia z serwisem Youtube</string>
+    <string name="press_again_to_exit">Wciśnij przycisk ponownie, aby wyjść z aplikacji</string>
 
     <!-- Drawer -->
 
