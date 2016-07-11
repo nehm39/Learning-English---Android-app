@@ -119,6 +119,10 @@
         <item>bniki</item>
     </string-array>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Exercises array -->
+
+    <string-array name="exercises_names">
+        <item>cat.jpg</item>
+        <item>dog.jpg</item>
+    </string-array>
 </resources>

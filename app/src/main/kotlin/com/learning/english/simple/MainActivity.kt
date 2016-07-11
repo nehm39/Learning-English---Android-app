@@ -53,6 +53,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val fragmentManager = supportFragmentManager
         var fragment: Fragment? = null
         when (item.itemId) {
+            R.id.drawer_menu_exercises -> {
+                fragment = ExercisesFragment()
+            }
             R.id.drawer_menu_cards -> {
                 fragment = CardsFragment()
             }
