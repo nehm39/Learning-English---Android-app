@@ -1,20 +1,15 @@
 package com.learning.english.simple
 
-import android.R.*
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
-
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
-import com.learning.english.simple.fragments.DictionaryFragment
-import com.learning.english.simple.fragments.LessonsListFragment
-import com.learning.english.simple.fragments.StartFragment
-import com.learning.english.simple.fragments.TranslateFragment
+import com.learning.english.simple.fragments.*
 import com.learning.english.simple.utils.Utils
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -58,6 +53,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val fragmentManager = supportFragmentManager
         var fragment: Fragment? = null
         when (item.itemId) {
+            R.id.drawer_menu_cards -> {
+                fragment = CardsFragment()
+            }
             R.id.drawer_menu_dictionary -> {
                 fragment = DictionaryFragment()
             }

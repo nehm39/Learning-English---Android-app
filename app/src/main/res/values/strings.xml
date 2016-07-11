@@ -91,6 +91,34 @@
         <item>CDzuIuNls04</item>
     </string-array>
 
+    <!-- Cards array -->
+
+    <string-array name="cards_names">
+        <item>niki</item>
+        <item>wniki</item>
+        <item>mki</item>
+        <item>otniki</item>
+        <item>owki</item>
+        <item>niki modalne</item>
+        <item>test</item>
+        <item> nieokreślone</item>
+        <item>iacz saksoński</item>
+        <item>bniki</item>
+    </string-array>
+
+    <string-array name="cards_names_values">
+        <item>niki</item>
+        <item>wniki</item>
+        <item>mki</item>
+        <item>otniki</item>
+        <item>owki</item>
+        <item>niki modalne</item>
+        <item>test</item>
+        <item> nieokreślone</item>
+        <item>iacz saksoński</item>
+        <item>bniki</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
