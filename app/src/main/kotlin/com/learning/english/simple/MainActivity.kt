@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             navigationView.getMenu().findItem(R.id.drawer_menu_start).setChecked(true);
         }
-
-        Utils.showToast(this, "teeeeeeeeeeeeeeeeeest")
     }
 
     override fun onBackPressed() {
