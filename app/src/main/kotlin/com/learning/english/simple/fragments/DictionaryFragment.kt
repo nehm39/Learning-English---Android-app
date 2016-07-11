@@ -61,7 +61,7 @@ class DictionaryFragment : Fragment() {
         }
 
         btnSearch!!.setOnClickListener {
-            if (validateTextInput()) {
+            if (validateTextInput() && Utils.isInternetConnectionAvailable(activity)) {
                 btnSearch!!.isEnabled = false
                 progressBar!!.visibility = View.VISIBLE
                 emptyLayout!!.visibility = View.GONE
@@ -99,7 +99,7 @@ class DictionaryFragment : Fragment() {
         }
 
         btnAudio!!.setOnClickListener {
-            if (!audioLock) {
+            if (!audioLock && Utils.isInternetConnectionAvailable(activity)) {
                 audioLock = true
                 try {
                     mPlayer!!.prepare();

@@ -10,6 +10,8 @@
     <string name="empty_input_field">Pole nie może być puste</string>
     <string name="no_result">Brak wyników</string>
     <string name="error_try_again">Wystąpił błąd, spróbuj ponownie</string>
+    <string name="connection_error">Brak połączenia z internetem</string>
+    <string name="youtube_connection_error">Wystąpił błąd podczas próby połączenia z serwisem Youtube</string>
 
     <!-- Drawer -->
 

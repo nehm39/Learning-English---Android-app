@@ -1,6 +1,8 @@
 package com.learning.english.simple.utils
 
 import android.app.Activity
+import android.content.Context
+import android.net.ConnectivityManager
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.TextView
@@ -25,7 +27,13 @@ object Utils {
         toast.show()
     }
 
-    fun findInArray(array : String) {
-
+    fun isInternetConnectionAvailable(activity: Activity) : Boolean {
+        val cm = activity.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (cm.activeNetworkInfo != null) {
+            return true
+        } else {
+            showToast(activity, activity.resources.getString(R.string.connection_error))
+            return false
+        }
     }
 }

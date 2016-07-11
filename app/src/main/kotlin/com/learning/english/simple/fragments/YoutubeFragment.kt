@@ -1,13 +1,11 @@
 package com.learning.english.simple.fragments
 
 
-import android.app.Fragment
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerFragment
@@ -40,7 +38,6 @@ class YoutubeFragment() : android.support.v4.app.Fragment(), YouTubePlayer.OnIni
         if (!wasRestored) {
             player.cueVideo(VIDEO_ID)
         }
-        //player.setFullscreen(true)
         player.setOnFullscreenListener(object : YouTubePlayer.OnFullscreenListener {
             override fun onFullscreen(full: Boolean) {
                 if (full) {
@@ -90,7 +87,7 @@ class YoutubeFragment() : android.support.v4.app.Fragment(), YouTubePlayer.OnIni
     }
 
     override fun onInitializationFailure(p0: YouTubePlayer.Provider?, p1: YouTubeInitializationResult?) {
-        Toast.makeText(activity, "fail", Toast.LENGTH_LONG).show()
+        Utils.showToast(activity, resources.getString(R.string.youtube_connection_error))
     }
 
 }

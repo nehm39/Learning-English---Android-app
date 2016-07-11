@@ -54,7 +54,7 @@ class TranslateFragment : Fragment(), IListDialogListener {
         mainActivity = activity as MainActivity
 
         btnTranslate!!.setOnClickListener {
-            if (validateTextInput()) {
+            if (validateTextInput() && Utils.isInternetConnectionAvailable(activity)) {
                 val progressDialog = ProgressDialogFragment.createBuilder(activity, activity.supportFragmentManager)
                         .setMessage(resources.getString(R.string.translation_in_progress))
                         .setRequestCode(TRANSLATION_PROGRESS_DIALOG)
