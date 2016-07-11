@@ -199,6 +199,83 @@
         <item>zebra</item>
         <item>żbik</item>
         <item>żyrafa</item>
+        <item>biurko</item>
+        <item>brama</item>
+        <item>chodnik</item>
+        <item>dach</item>
+        <item>drzwi wejściowe</item>
+        <item>dywan</item>
+        <item>firanka</item>
+        <item>fotel</item>
+        <item>garaż</item>
+        <item>garnek</item>
+        <item>grzejnik</item>
+        <item>jadalnia</item>
+        <item>klucz</item>
+        <item>kołdra</item>
+        <item>kołdra/koc/itp.</item>
+        <item>komin</item>
+        <item>kominek</item>
+        <item>komoda </item>
+        <item>kran</item>
+        <item>kredens</item>
+        <item>krzesło</item>
+        <item>kuchenka</item>
+        <item>kuchnia</item>
+        <item>lampka</item>
+        <item>ława</item>
+        <item>łazienka</item>
+        <item>lodówka</item>
+        <item>łóżko</item>
+        <item>łyżka</item>
+        <item>mikrofalówka</item>
+        <item>miotła</item>
+        <item>mydło</item>
+        <item>nóż</item>
+        <item>obraz</item>
+        <item>odkurzacz</item>
+        <item>okno</item>
+        <item>pasta do zębów</item>
+        <item>patelnia</item>
+        <item>piekarnik</item>
+        <item>piwnica</item>
+        <item>płot</item>
+        <item>podłoga</item>
+        <item>poduszka na kanapie</item>
+        <item>poduszka w łóżku</item>
+        <item>pokój dzienny</item>
+        <item>półka / regał</item>
+        <item>prysznic</item>
+        <item>przedpokój</item>
+        <item>prześcieradło</item>
+        <item>ręcznik</item>
+        <item>robot kuchenny</item>
+        <item>roślina</item>
+        <item>schody</item>
+        <item>ściana</item>
+        <item>sofa</item>
+        <item>stół</item>
+        <item>stolik nocny</item>
+        <item>strych</item>
+        <item>sufit</item>
+        <item>suszarka do włosów</item>
+        <item>sypialnia</item>
+        <item>szafa</item>
+        <item>szampon</item>
+        <item>szczoteczka od zębów</item>
+        <item>szklanka</item>
+        <item>talerz</item>
+        <item>umywalka</item>
+        <item>odtwarzacz video,cd, dvd</item>
+        <item>wanna</item>
+        <item>toaleta</item>
+        <item>widelec</item>
+        <item>wieża</item>
+        <item>zamek w drzwiach</item>
+        <item>żelazko</item>
+        <item>zlew</item>
+        <item>zmywarka</item>
+        <item>zwykły dywan</item>
     </string-array>
 
     <string-array name="cards_names_values">
@@ -300,5 +377,82 @@
         <item>zebra     </item>
         <item>wildcat</item>
         <item>giraffe  </item>
+        <item>desk</item>
+        <item>gate</item>
+        <item>pavement</item>
+        <item>roof</item>
+        <item>front door</item>
+        <item>carpet</item>
+        <item>curtain</item>
+        <item>armchair</item>
+        <item>garage</item>
+        <item>pot</item>
+        <item>radiator</item>
+        <item>dining room</item>
+        <item>key</item>
+        <item>quilt</item>
+        <item>blanket</item>
+        <item>chimney</item>
+        <item>fireplace</item>
+        <item>chest of drawers</item>
+        <item>tap</item>
+        <item>cupboard</item>
+        <item>chair</item>
+        <item>cooker</item>
+        <item>kitchen</item>
+        <item>lamp</item>
+        <item>coffee table</item>
+        <item>bathroom</item>
+        <item>fridge</item>
+        <item>bed</item>
+        <item>spoon</item>
+        <item>microwave</item>
+        <item>broom</item>
+        <item>soap</item>
+        <item>knife</item>
+        <item>picture</item>
+        <item>vacuum cleaner</item>
+        <item>window</item>
+        <item>toothpaste</item>
+        <item>pan</item>
+        <item>oven</item>
+        <item>cellar</item>
+        <item>fence</item>
+        <item>floor</item>
+        <item>cushion</item>
+        <item>pillow</item>
+        <item>living room</item>
+        <item>shelves</item>
+        <item>shower</item>
+        <item>hall</item>
+        <item>sheet</item>
+        <item>towel</item>
+        <item>food processor</item>
+        <item>plant</item>
+        <item>stairs</item>
+        <item>wall</item>
+        <item>sofa</item>
+        <item>table</item>
+        <item>bedside table</item>
+        <item>attic</item>
+        <item>ceiling</item>
+        <item>hair dryer</item>
+        <item>bedroom</item>
+        <item>wardrobe</item>
+        <item>shampoo</item>
+        <item>toothbrush</item>
+        <item>glass</item>
+        <item>plate</item>
+        <item>washbasin</item>
+        <item>player decoder</item>
+        <item>bath</item>
+        <item>toilet</item>
+        <item>fork</item>
+        <item>stereo</item>
+        <item>lock</item>
+        <item>iron</item>
+        <item>sink</item>
+        <item>dishwasher</item>
+        <item>rug</item>
     </string-array>
 </resources>
