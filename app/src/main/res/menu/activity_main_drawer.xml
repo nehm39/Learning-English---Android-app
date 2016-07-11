@@ -20,7 +20,7 @@
             android:title="@string/drawer_menu_cards" />
         <item
             android:id="@+id/drawer_menu_exercises"
-            android:icon="@drawable/ic_cards"
+            android:icon="@drawable/ic_exercise"
             android:title="@string/drawer_menu_exercises" />
         <item
             android:id="@+id/drawer_menu_dictionary"
