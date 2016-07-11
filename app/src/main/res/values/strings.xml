@@ -23,6 +23,10 @@
     <string name="drawer_menu_settings">Ustawienia</string>
     <string name="drawer_menu_info">Informacje</string>
 
+    <!-- Exercises -->
+    <string name="exercises_bad_answer">Błędna odpowiedź</string>
+    <string name="exercises_correct_answer">Poprawna odpowiedź</string>
+
     <!-- Dictionary -->
     <string name="dictionary_hint">Wprowadź słowo po angielsku</string>
 
