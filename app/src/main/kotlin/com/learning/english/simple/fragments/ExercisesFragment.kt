@@ -24,7 +24,7 @@ class ExercisesFragment : Fragment() {
     var btnCheck: ImageButton? = null
     var random: SecureRandom? = null
     var currentWord = ""
-    var imagesList: List<String>? = null
+    var filesList: List<String>? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -34,7 +34,7 @@ class ExercisesFragment : Fragment() {
         etxtWord = fragmentView.findViewById(R.id.exercises_etxt_word) as EditText
         etxtInputLayout = fragmentView.findViewById(R.id.exercises_text_input_layout) as TextInputLayout
         btnCheck = fragmentView.findViewById(R.id.exercises_img_btn) as ImageButton
-        imagesList = resources.getStringArray(R.array.exercises_names).asList()
+        filesList = resources.getAssets().list("exercises").asList()
         btnCheck!!.setOnClickListener {
             if (validateTextInput()) {
                 Utils.showToast(activity, resources.getString(R.string.exercises_correct_answer))
@@ -61,8 +61,8 @@ class ExercisesFragment : Fragment() {
     //TODO: needs to be on bg thread
     //RxJava or AsyncTask?
     fun getRandomImage() {
-        val randomPosition = random!!.nextInt(imagesList!!.size)
-        currentWord = imagesList!![randomPosition]
+        val randomPosition = random!!.nextInt(filesList!!.size)
+        currentWord = filesList!![randomPosition].substring(0, filesList!![randomPosition].indexOf(".jpg"))
         val resourceImage = Drawable.createFromResourceStream(resources, TypedValue(), resources.getAssets().open("exercises/" + currentWord + ".jpg"), null)
         wordImage!!.setImageDrawable(resourceImage)
         etxtWord!!.text = SpannableStringBuilder("")
