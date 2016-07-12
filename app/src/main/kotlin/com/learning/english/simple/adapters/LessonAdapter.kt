@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.learning.english.simple.MainActivity
+import com.learning.english.simple.activity.MainActivity
 import com.learning.english.simple.R
 import com.learning.english.simple.fragments.WebViewFragment
 import com.learning.english.simple.fragments.YoutubeFragment

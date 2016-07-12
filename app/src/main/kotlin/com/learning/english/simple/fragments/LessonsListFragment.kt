@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.learning.english.simple.MainActivity
+import com.learning.english.simple.activity.MainActivity
 import com.learning.english.simple.R
 import com.learning.english.simple.adapters.LessonAdapter
 import com.learning.english.simple.utils.Utils

@@ -1,4 +1,4 @@
-package com.learning.english.simple
+package com.learning.english.simple.activity
 
 import android.content.Context
 import android.graphics.Typeface
@@ -15,6 +15,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import com.learning.english.simple.R
 import com.learning.english.simple.fragments.*
 import com.learning.english.simple.utils.Utils
 

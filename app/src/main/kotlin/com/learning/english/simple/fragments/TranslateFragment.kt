@@ -15,8 +15,8 @@ import android.widget.TextView
 import com.avast.android.dialogs.fragment.ListDialogFragment
 import com.avast.android.dialogs.fragment.ProgressDialogFragment
 import com.avast.android.dialogs.iface.IListDialogListener
-import com.learning.english.simple.MainActivity
 import com.learning.english.simple.R
+import com.learning.english.simple.activity.MainActivity
 import com.learning.english.simple.api.YandexRetrofitSingleton
 import com.learning.english.simple.model.YandexTranslation
 import com.learning.english.simple.utils.SharedPreferencesUtils
