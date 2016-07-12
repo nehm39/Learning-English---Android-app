@@ -7,13 +7,16 @@ import android.os.Bundle
 import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
 import android.text.SpannableStringBuilder
-import android.util.TypedValue
 import android.view.*
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
+import com.learning.english.simple.Observable.ExerciseObservable
 import com.learning.english.simple.R
 import com.learning.english.simple.utils.Utils
+import rx.Subscriber
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
 import java.security.SecureRandom
 
 class ExercisesFragment : Fragment() {
@@ -24,6 +27,8 @@ class ExercisesFragment : Fragment() {
     var random: SecureRandom? = null
     var currentWord = ""
     var filesList: List<String>? = null
+
+    var imageLock = false
 
     val VOICE_REQUEST_OK = 7831
 
@@ -59,14 +64,28 @@ class ExercisesFragment : Fragment() {
         }
     }
 
-    //TODO: needs to be on bg thread
-    //RxJava or AsyncTask?
     fun getRandomImage() {
-        val randomPosition = random!!.nextInt(filesList!!.size)
-        currentWord = filesList!![randomPosition].substring(0, filesList!![randomPosition].indexOf(".jpg"))
-        val resourceImage = Drawable.createFromResourceStream(resources, TypedValue(), resources.getAssets().open("exercises/" + currentWord + ".jpg"), null)
-        wordImage!!.setImageDrawable(resourceImage)
-        etxtWord!!.text = SpannableStringBuilder("")
+        if (!imageLock) {
+            imageLock = true
+            val randomPosition = random!!.nextInt(filesList!!.size)
+            currentWord = filesList!![randomPosition].substring(0, filesList!![randomPosition].indexOf(".jpg"))
+            ExerciseObservable.loadExerciseImage(resources, currentWord)
+                    .subscribeOn(Schedulers.newThread())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(object : Subscriber<Drawable>() {
+                        override fun onCompleted() {
+                        }
+
+                        override fun onNext(drawable: Drawable?) {
+                            wordImage!!.setImageDrawable(drawable)
+                            etxtWord!!.text = SpannableStringBuilder("")
+                            imageLock = false
+                        }
+
+                        override fun onError(e: Throwable?) {
+                        }
+                    })
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
