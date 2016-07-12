@@ -35,6 +35,7 @@ class ExercisesFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val fragmentView = inflater!!.inflate(R.layout.fragment_exercises, container, false)
+        activity.title = resources.getString(R.string.drawer_menu_exercises)
         random = SecureRandom()
         wordImage = fragmentView.findViewById(R.id.exercises_image_view) as ImageView
         etxtWord = fragmentView.findViewById(R.id.exercises_etxt_word) as EditText

@@ -21,8 +21,8 @@ class YoutubeFragment() : android.support.v4.app.Fragment(), YouTubePlayer.OnIni
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
         val fragmentView = inflater!!.inflate(R.layout.fragment_youtube, container, false)
+        activity.title = resources.getString(R.string.drawer_menu_video)
         val youtubePlayerFragment = YouTubePlayerFragment()
         VIDEO_ID = arguments[VIDEO_ID_KEY] as String
         youtubePlayerFragment.initialize(Utils.GOOGLE_API_KEY, this)
@@ -40,9 +40,7 @@ class YoutubeFragment() : android.support.v4.app.Fragment(), YouTubePlayer.OnIni
         }
         player.setOnFullscreenListener(object : YouTubePlayer.OnFullscreenListener {
             override fun onFullscreen(full: Boolean) {
-                if (full) {
-                    //activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                } else {
+                if (!full) {
                     activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
                 }
             }

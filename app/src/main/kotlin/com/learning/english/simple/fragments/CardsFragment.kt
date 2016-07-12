@@ -21,6 +21,7 @@ class CardsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val fragmentView = inflater!!.inflate(R.layout.fragment_cards, container, false)
+        activity.title = resources.getString(R.string.drawer_menu_cards)
         random = SecureRandom()
         txtWord = fragmentView.findViewById(R.id.cards_word) as TextView
         txtDefinition = fragmentView.findViewById(R.id.cards_definition) as TextView

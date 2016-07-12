@@ -43,6 +43,7 @@ class TranslateFragment : Fragment(), IListDialogListener {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         fragmentView = inflater!!.inflate(R.layout.fragment_translate, container, false)
+        activity.title = resources.getString(R.string.drawer_menu_translate)
         etxtTextToTranslate = fragmentView!!.findViewById(R.id.etxt_text_to_translate) as EditText
         inputLayoutTextToTranslate = fragmentView!!.findViewById(R.id.input_layout_text_to_translate) as TextInputLayout
         etxtOutput = fragmentView!!.findViewById(R.id.etxt_translated_text) as TextView

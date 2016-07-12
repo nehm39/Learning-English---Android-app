@@ -15,6 +15,7 @@ class InformationFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val fragmentView = inflater!!.inflate(R.layout.fragment_information, container, false)
+        activity.title = resources.getString(R.string.drawer_menu_info)
         val txtInfo = fragmentView.findViewById(R.id.txt_information) as TextView
         Linkify.addLinks(txtInfo, Linkify.ALL)
         return fragmentView

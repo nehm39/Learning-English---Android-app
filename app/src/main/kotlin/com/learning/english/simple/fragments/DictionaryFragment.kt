@@ -41,6 +41,7 @@ class DictionaryFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val fragmentView = inflater!!.inflate(R.layout.fragment_dictionary, container, false)
+        activity.title = resources.getString(R.string.drawer_menu_dictionary)
         txtWordName = fragmentView.findViewById(R.id.dictionary_word_text) as TextView
         txtWordDefinition = fragmentView.findViewById(R.id.dictionary_definitions_text) as TextView
         btnSearch = fragmentView.findViewById(R.id.dictionary_img_btn) as ImageButton

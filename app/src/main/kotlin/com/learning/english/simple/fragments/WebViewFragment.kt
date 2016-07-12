@@ -18,6 +18,7 @@ class WebViewFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        activity.title = resources.getString(R.string.drawer_menu_lessons)
         val fragmentView = inflater!!.inflate(R.layout.fragment_web_view, container, false)
         val webView = fragmentView.findViewById(R.id.web_view) as WebView
         webView.settings.allowFileAccess = true
