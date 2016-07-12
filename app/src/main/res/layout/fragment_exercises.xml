@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/activity_horizontal_margin">
 
     <ImageView
@@ -44,7 +45,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp"
             android:background="@drawable/btn_image_shape"
-            android:src="@drawable/ic_check" />
+            app:srcCompat="@drawable/ic_check" />
 
     </RelativeLayout>
 
