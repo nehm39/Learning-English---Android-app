@@ -19,6 +19,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     var doubleBackToExitPressedOnce = false
 
+    //TODO: skip exercise
+    //TODO: voice input in exercise
+    //TODO: start screen
+    //TODO: rxjava for bg operations
+    //TODO: informacje
+    //TODO: splash screen
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
