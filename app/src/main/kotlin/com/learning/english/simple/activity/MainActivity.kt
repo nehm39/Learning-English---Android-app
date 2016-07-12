@@ -17,14 +17,17 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import com.learning.english.simple.R
 import com.learning.english.simple.fragments.*
+import com.learning.english.simple.utils.SharedPreferencesUtils
 import com.learning.english.simple.utils.Utils
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     var doubleBackToExitPressedOnce = false
 
-    //TODO: start screen
-    //TODO: splash screen
+    var currentFragmentId: Int? = null
+
+    //TODO: create layout for start screen
+    //TODO: add background image for splash screen
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,11 +56,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navigationView!!.setNavigationItemSelectedListener(this)
 
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                    .add(R.id.fragment_container, StartFragment())
-                    .commit()
+            val lastFragment = SharedPreferencesUtils.getLastOpenedFragment(this)
+            val fragment = getCorrectFragmentById(lastFragment)
 
-            navigationView.getMenu().findItem(R.id.drawer_menu_start).setChecked(true);
+            if (fragment == null) {
+                supportFragmentManager.beginTransaction()
+                        .add(R.id.fragment_container, StartFragment())
+                        .commit()
+            } else {
+                supportFragmentManager.beginTransaction()
+                        .add(R.id.fragment_container, fragment)
+                        .commit()
+                navigationView.getMenu().findItem(lastFragment).setChecked(true);
+            }
         }
 
         val headerLayout = navigationView.getHeaderView(0)
@@ -83,8 +94,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val fragmentManager = supportFragmentManager
-        var fragment: Fragment? = null
-        when (item.itemId) {
+        currentFragmentId = item.itemId
+        val fragment = getCorrectFragmentById(item.itemId)
+
+        if (fragment != null) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit()
+        }
+
+        val drawer = findViewById(R.id.drawer_layout) as DrawerLayout?
+        drawer!!.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    fun getCorrectFragmentById(id: Int): Fragment? {
+        var fragment : Fragment? = null
+        when (id) {
             R.id.drawer_menu_exercises -> {
                 fragment = ExercisesFragment()
             }
@@ -113,15 +139,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 fragment.arguments = bundle
             }
         }
+        return fragment
+    }
 
-        if (fragment != null) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .commit()
+    override fun onStop() {
+        super.onStop()
+        if (currentFragmentId != null) {
+            SharedPreferencesUtils.saveLastOpenedFragment(this, currentFragmentId!!)
         }
-
-        val drawer = findViewById(R.id.drawer_layout) as DrawerLayout?
-        drawer!!.closeDrawer(GravityCompat.START)
-        return true
     }
 }
