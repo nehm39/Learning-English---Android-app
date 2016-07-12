@@ -23,9 +23,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     var doubleBackToExitPressedOnce = false
 
     //TODO: start screen
-    //TODO: informacje
     //TODO: splash screen
-    //TODO: hide keyboard on drawer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,6 +95,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.drawer_menu_translate -> {
                 fragment = TranslateFragment()
+            }
+            R.id.drawer_menu_info -> {
+                fragment = InformationFragment()
             }
             R.id.drawer_menu_lessons -> {
                 fragment = LessonsListFragment()
