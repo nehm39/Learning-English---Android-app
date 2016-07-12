@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/exercise_menu_skip"
+        android:icon="@drawable/ic_skip_exercise"
+        android:title="@string/exercises_skip"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/exercise_menu_voice_input"
+        android:icon="@drawable/ic_voice"
+        android:title="@string/voice_input"
+        app:showAsAction="ifRoom"/>
+</menu>

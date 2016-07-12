@@ -2,7 +2,9 @@ package com.learning.english.simple.utils
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
+import android.speech.RecognizerIntent
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.TextView
@@ -35,5 +37,25 @@ object Utils {
             showToast(activity, activity.resources.getString(R.string.connection_error))
             return false
         }
+    }
+
+    fun startVoiceInput(activity: Activity, requestCode: Int, language: String) {
+        val i = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+        i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, language)
+        try {
+            activity.startActivityForResult(i, requestCode)
+        } catch (e: Exception) {
+            Utils.showToast(activity, activity.resources.getString(R.string.voice_input_error))
+        }
+    }
+
+    fun getVoiceInput(requestCode: Int, resultCode: Int, data: Intent?, correctRequestCode: Int) : String? {
+        if (requestCode == correctRequestCode && resultCode == Activity.RESULT_OK && data != null) {
+            val recordedText = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+            if (recordedText.size > 0) {
+                return recordedText[0]
+            }
+        }
+        return null
     }
 }

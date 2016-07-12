@@ -19,8 +19,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     var doubleBackToExitPressedOnce = false
 
-    //TODO: skip exercise
-    //TODO: voice input in exercise
     //TODO: start screen
     //TODO: rxjava for bg operations
     //TODO: informacje
@@ -51,7 +49,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val headerLayout = navigationView.getHeaderView(0)
         val headerAppName = headerLayout.findViewById(R.id.nav_header_app_name) as TextView
-        val typeface = Typeface.createFromAsset(assets, "mightype.otf")
+        val typeface = Typeface.createFromAsset(assets, "Mightype.otf")
         headerAppName.setTypeface(typeface)
     }
 

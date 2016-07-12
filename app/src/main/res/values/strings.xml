@@ -29,6 +29,7 @@
     <!-- Exercises -->
     <string name="exercises_bad_answer">Błędna odpowiedź</string>
     <string name="exercises_correct_answer">Poprawna odpowiedź</string>
+    <string name="exercises_skip">Pomiń ćwiczenie</string>
 
     <!-- Dictionary -->
     <string name="dictionary_hint">Wprowadź słowo po angielsku</string>

@@ -1,10 +1,8 @@
 package com.learning.english.simple.fragments
 
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.speech.RecognizerIntent
 import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
 import android.text.SpannableStringBuilder
@@ -116,18 +114,11 @@ class TranslateFragment : Fragment(), IListDialogListener {
                         .show()
             }
             R.id.translate_voice_input -> {
-                val i = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-                var voiceLanguage = "pl-PL"
                 if (translationOptionValue.equals("en-pl")) {
-                    voiceLanguage = "en-US"
+                    Utils.startVoiceInput(activity, VOICE_REQUEST_OK, "en-US")
+                } else {
+                    Utils.startVoiceInput(activity, VOICE_REQUEST_OK, "pl-PL")
                 }
-                i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, voiceLanguage)
-                try {
-                    startActivityForResult(i, VOICE_REQUEST_OK)
-                } catch (e: Exception) {
-                    Utils.showToast(activity, resources.getString(R.string.voice_input_error))
-                }
-
             }
         }
         return false
@@ -135,11 +126,9 @@ class TranslateFragment : Fragment(), IListDialogListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == VOICE_REQUEST_OK && resultCode == Activity.RESULT_OK && data != null) {
-            val recordedText = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
-            if (recordedText.size > 0) {
-                etxtTextToTranslate!!.text = SpannableStringBuilder(recordedText[0])
-            }
+        val voiceInput = Utils.getVoiceInput(requestCode, resultCode, data, VOICE_REQUEST_OK)
+        if (voiceInput != null) {
+            etxtTextToTranslate!!.text = SpannableStringBuilder(voiceInput)
         }
     }
 

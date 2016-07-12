@@ -1,12 +1,10 @@
 package com.learning.english.simple.fragments
 
 
-import android.app.Activity
 import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.speech.RecognizerIntent
 import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
 import android.text.SpannableStringBuilder
@@ -171,15 +169,7 @@ class DictionaryFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.dictionary_voice_input -> {
-                val i = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-                i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "en-US")
-                try {
-                    startActivityForResult(i, VOICE_REQUEST_OK)
-                } catch (e: Exception) {
-                    Utils.showToast(activity, resources.getString(R.string.voice_input_error))
-                }
-
-
+                Utils.startVoiceInput(activity, VOICE_REQUEST_OK, "en-US")
             }
         }
         return false
@@ -187,11 +177,9 @@ class DictionaryFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == VOICE_REQUEST_OK && resultCode == Activity.RESULT_OK && data != null) {
-            val recordedText = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
-            if (recordedText.size > 0) {
-                etxtSearchedWord!!.text = SpannableStringBuilder(recordedText[0])
-            }
+        val voiceInput = Utils.getVoiceInput(requestCode, resultCode, data, VOICE_REQUEST_OK)
+        if (voiceInput != null) {
+            etxtSearchedWord!!.text = SpannableStringBuilder(voiceInput)
         }
     }
 

@@ -1,15 +1,14 @@
 package com.learning.english.simple.fragments
 
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
 import android.text.SpannableStringBuilder
 import android.util.TypedValue
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -25,6 +24,8 @@ class ExercisesFragment : Fragment() {
     var random: SecureRandom? = null
     var currentWord = ""
     var filesList: List<String>? = null
+
+    val VOICE_REQUEST_OK = 7831
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -66,5 +67,35 @@ class ExercisesFragment : Fragment() {
         val resourceImage = Drawable.createFromResourceStream(resources, TypedValue(), resources.getAssets().open("exercises/" + currentWord + ".jpg"), null)
         wordImage!!.setImageDrawable(resourceImage)
         etxtWord!!.text = SpannableStringBuilder("")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.exercise_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.exercise_menu_skip -> {
+                getRandomImage()
+            }
+            R.id.exercise_menu_voice_input -> {
+                Utils.startVoiceInput(activity, VOICE_REQUEST_OK, "pl-PL")
+            }
+        }
+        return false
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        val voiceInput = Utils.getVoiceInput(requestCode, resultCode, data, VOICE_REQUEST_OK)
+        if (voiceInput != null) {
+            etxtWord!!.text = SpannableStringBuilder(voiceInput)
+        }
     }
 }
