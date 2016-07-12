@@ -14,8 +14,11 @@
     <string name="youtube_connection_error">Wystąpił błąd podczas próby połączenia z serwisem Youtube</string>
     <string name="press_again_to_exit">Wciśnij przycisk ponownie, aby wyjść z aplikacji</string>
 
-    <!-- Drawer -->
+    <!-- Start -->
+    <string name="start_welcome">Witaj</string>
+    <string name="start_info">Użyj paska nawigacyjnego w lewym górnym rogu, aby rozpocząć korzystanie z aplikacji.</string>
 
+    <!-- Drawer -->
     <string name="drawer_menu_start">Start</string>
     <string name="drawer_menu_lessons">Lekcje</string>
     <string name="drawer_menu_video">Wideo</string>
@@ -457,5 +460,5 @@
         <item>rug</item>
     </string-array>
 
-    <string name="information_text">Aplikacja została stworzona na projekt z przedmiotu: Projektowanie interfejsów multimedialnych.\n\nRealizacja projektu:\nSzymon Gajewski w50033\nSebastian Wójcik w50026\n\nProwadzący:\ndr Bolesław Jaskuła\n\nDo implementaji słownika wykorzystane zostało Wordnik API (http://developer.wordnik.com).\nDo implementaji translatora wykorzystane zostało Translate API, udostępniane przez firmę Yandex (https://tech.yandex.com)\n\nJako ikona aplikacja wykorzystana została ikona stworzona przez firmę Google i udostępniona na licencji CC 2.0.\n\nBiblioteki wykorzystane przy realizacji projektu:\nYouTubeAndroidPlayerApi\nRxJava\nRetrofit\nAndroid Styled Dialogs\n\nWszystkie z nich oparte są na licencji Apache 2.0, brzmiącej następująco:\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="information_text">Aplikacja została stworzona na projekt z przedmiotu: Projektowanie interfejsów multimedialnych.\n\nRealizacja projektu:\nSzymon Gajewski w50033\nSebastian Wójcik w50026\n\nProwadzący:\ndr Bolesław Jaskuła\n\nDo implementaji słownika wykorzystane zostało Wordnik API (http://developer.wordnik.com).\nDo implementaji translatora wykorzystane zostało Translate API, udostępniane przez firmę Yandex (https://tech.yandex.com)\n\nJako ikona aplikacja wykorzystana została ikona stworzona przez firmę Google i udostępniona na licencji CC 2.0.\n\nPrzy realizacji projektu wykorzystano także dwie darmowe czcionki: Mightype oraz DroidSerif.\n\nBiblioteki wykorzystane przy realizacji projektu:\nYouTubeAndroidPlayerApi\nRxJava\nRetrofit\nAndroid Styled Dialogs\n\nWszystkie z nich oparte są na licencji Apache 2.0, brzmiącej następująco:\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
 </resources>

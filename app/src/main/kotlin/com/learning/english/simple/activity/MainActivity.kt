@@ -25,8 +25,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     var doubleBackToExitPressedOnce = false
 
     var currentFragmentId: Int? = null
-
-    //TODO: create layout for start screen
+    
     //TODO: add background image for splash screen
 
     override fun onCreate(savedInstanceState: Bundle?) {
