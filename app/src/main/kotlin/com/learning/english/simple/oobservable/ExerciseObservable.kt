@@ -1,4 +1,4 @@
-package com.learning.english.simple.Observable
+package com.learning.english.simple.oobservable
 
 import android.content.res.Resources
 import android.graphics.drawable.Drawable

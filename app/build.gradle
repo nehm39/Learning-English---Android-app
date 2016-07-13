@@ -51,4 +51,7 @@ dependencies {
     //RxJava Library
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.6'
+
+    //SQLite ORM
+    compile 'de.greenrobot:greendao:2.1.0'
 }
