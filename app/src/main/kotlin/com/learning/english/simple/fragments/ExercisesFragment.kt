@@ -12,7 +12,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import com.learning.english.simple.R
-import com.learning.english.simple.oobservable.ExerciseObservable
+import com.learning.english.simple.observable.ExerciseObservable
 import com.learning.english.simple.utils.Utils
 import rx.Subscriber
 import rx.android.schedulers.AndroidSchedulers

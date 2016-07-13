@@ -8,14 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.learning.english.simple.MyApplication
 
 import com.learning.english.simple.R
+import com.learning.english.simple.db.Card
 import java.security.SecureRandom
 
 class CardsFragment : Fragment() {
     var txtWord : TextView? = null
     var txtDefinition : TextView? = null
-    var wordsList : List<String>? = null
+    var wordsList : List<Card>? = null
     var random : SecureRandom? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -33,15 +35,15 @@ class CardsFragment : Fragment() {
                 getRandomWord()
             }
         }
-        wordsList = resources.getStringArray(R.array.cards_names).asList()
+        wordsList = MyApplication.getInstance()!!.getDaoSession()!!.cardDao.loadAll()
         getRandomWord()
         return fragmentView
     }
 
     fun getRandomWord() {
         val randomPosition = random!!.nextInt(wordsList!!.size)
-        val currentWord = resources.getStringArray(R.array.cards_names)[randomPosition]
-        val currentDefinition = resources.getStringArray(R.array.cards_names_values)[randomPosition]
+        val currentWord = wordsList!![randomPosition].word
+        val currentDefinition = wordsList!![randomPosition].definition
         txtDefinition!!.visibility = View.INVISIBLE
         txtWord!!.text = currentWord
         txtDefinition!!.text = currentDefinition
